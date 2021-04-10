@@ -128,11 +128,12 @@ include "session.php";
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light"></a>
         <a href="stu_dashboard.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="course.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-file-text" aria-hidden="true"></i> Course</a>
         <a href="admin.php" class="list-group-item list-group-item-action bg-light" data-toggle="modal" data-target="#calender"><i class="fa fa-calendar" aria-hidden="true"></i>  Calender</a>
         <a href="leaves.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-pagelines" aria-hidden="true"></i> Leaves</a>
         <a href="attandance.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-file-text" aria-hidden="true"></i> Attandance</a>
-      <!--   <a href="chat.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-commenting-o" aria-hidden="true"></i> Chat</a> -->
-      <a href="assignment.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-commenting-o" aria-hidden="true"></i> Assignment</a>
+        <a href="chat.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-commenting-o" aria-hidden="true"></i> Chat</a>
+        <a href="assignment.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-commenting-o" aria-hidden="true"></i> Assignment</a>
         <a href="logout.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
       </div>
     </div>

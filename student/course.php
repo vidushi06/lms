@@ -11,25 +11,26 @@ include "sidebar.php";
       
       <div class="container">
 
-           <h3 class="text-center mt-4"><i class="fa fa-paper-plane" aria-hidden="true"></i> Assignments</h3>
+           <h3 class="text-center mt-4"><i class="fa fa-file-text" aria-hidden="true"></i> Course</h3>
           <br><br>
           <?php
 
 
           include "dbcon.php";
-          $data= "SELECT * from assignment_list ORDER BY b_id desc" ;
+          $data= "SELECT * from course ORDER BY d_id desc" ;
                 $result=mysqli_query($con,$data);
                 while($a=mysqli_fetch_array($result)){
 
           ?>
           <div class="item mb-5">
             <div class="media">
-              <!-- <img class="mr-3 img-fluid post-thumb  d-md-flex" src="yeacher/<?php echo $a['image'] ?>" alt="image"> -->
+              <!-- <img class="mr-3 img-fluid post-thumb  d-md-flex" src="teacher/upload/<?php echo $a['d_image'] ?>" alt="image"> -->
               <div class="media-body">
-                <h3 class="title mb-1"><a href="#"><?php echo $a['title'] ?></a></h3>
-                <div class="meta mb-1">Created at : <span class="date"><?php echo $a['created_at']  ?></span></div>
-                <div class="intro"><?php echo substr($a['description'],0,400);?></div>
-                <a class="more-link" href="#" style="color: #1762dd" data-toggle="modal" data-target="#"><input type="file" name="add file"><!-- &rarr; --></a>
+                 <h3 class="title mb-1"><a href="#"><?php echo $a['d_title'] ?></a></h3>
+                 <div class="meta mb-1">Created at : <span class="date"><?php echo $a['date_time']  ?></span></div>
+                 <div class="intro"><?php echo substr($a['d_description'],0,400);?></div>
+                 <div class="intro"></div>
+                 <a class="more-link" href="course_details.php?id=<?php echo $a['d_id'] ?>" style="color: #1762dd">view more &rarr;</a>
               </div><!--//media-body-->
             </div><!--//media-->
           </div><!--//item-->

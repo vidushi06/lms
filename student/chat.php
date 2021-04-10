@@ -1,41 +1,86 @@
 <?php 
 include "sidebar.php";
- ?>
+?>
 
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-    
-      <?php include "header.php" ?>
+    <?php include "header.php" ?>
 
       <div class="container">
-        <h2 class="mt-4">Chat</h2>
-      
-        <table class="table">
-            <tr class="shadow">
-                <th>S no.</th>
-                <td>Date</td>
-                <td>Subject</td>
-            </tr>
-            <?php
+      <br>  
+        <div class="card">
+            <div class="card-header">
+                
+              <h3 class="mt-4 card-title"><i class="fa fa-user" aria-hidden="true"></i>Send msg</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered table-striped">
+                <form method="post" action="m.php">
+                    <div class="row">
+                      <div class="col-md-8">
+                          <div class="form-group">
+                            <input type="text" name="message" class="form-control">
+                          </div>
+                      </div>
+                       <div class="col-md-4">
+                          <div class="form-group">
+                              <input type="text" name="send_from" value="<?php echo $_SESSION['stu_id'] ?>">
+                               <?php
+                                   include 'dbcon.php';
+                                   if (isset($_GET['id'])) {
+                                      $id = $_GET['id'];
+                                      $data = "SELECT * FROM user WHERE id = $id";
+                                      $result = mysqli_query($con,$data);
+                                      $a = mysqli_fetch_array($result);
+                                    }
+                                ?>
+                              <button name="submit" class="btn btn-info">send</button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                </form>   
+              </table>
+            </div>
+              <!-- /.card-body -->
+         </div>
+            <!-- /.card -->
+        <br>
 
-              include "dbcon.php";
+           <div class="card">
+              <div class="card-header">
+                
+                 <h3 class="mt-4 card-title"><i class="fa fa-user" aria-hidden="true"></i>Previous messages</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                  <table class="table table-bordered table-striped">
+                    
+                   
+                         <?php
 
-              $i = 1;
-              $a= $_SESSION['stu_id'];
-              $data = "SELECT * FROM attandance WHERE stud_id = '$a' ORDER BY date_time";
-              $result= mysqli_query($con,$data);
-              while($b = mysqli_fetch_array($result)){
-            ?>
-
-            <tr>
-                <td><?php echo $i++; ?></td>
-                <td><?php echo $b['date_time']; ?></td>
-                <td><?php echo $b['subject']; ?></td>
-            </tr>
+                            include "dbcon.php"; 
+                            $id = $_SESSION['stu_id'];
+                            $data = "SELECT * FROM msg WHERE send_to = $id";
+                            $result = mysqli_query($con,$data);
+                            while($s = mysqli_fetch_array($result))
+                            {
+                        ?>
+          
+          <ul>
+            <li><?php echo $s['message']?> from <?php echo $s['send_from']?></li>
+          </ul>
           <?php } ?>
-        </table>
+                                       
+                  </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
       </div>
+      
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -57,3 +102,7 @@ include "sidebar.php";
 </body>
 
 </html>
+
+
+<!--msg insert--->
+

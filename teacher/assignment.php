@@ -57,8 +57,8 @@ include "sidebar.php";
 
 
                     <td>
-                      <a href="edit_blog.php?id=<?php echo $a['b_id'] ?>" class="btn btn-primary">edit</a>
-                      <a href="delete.php?id=<?php echo $a['b_id'] ?>" class="btn btn-danger">delete</a>
+                      <a href="assignment_edit.php?id=<?php echo $a['b_id'] ?>" class="btn btn-primary">edit</a>
+                      <a href="assignment_delete.php?id=<?php echo $a['b_id'] ?>" class="btn btn-danger">delete</a>
                     </td>
                     </tr>
 
